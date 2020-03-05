@@ -10,11 +10,11 @@ import { theReducer } from "./reducers";
 import 'semantic-ui-css/semantic.min.css';
 
 const store = createStore(theReducer, applyMiddleware(thunk))
-
+const rootElement = document.getElementById('root');
 ReactDOM.render(
 <Provider store={store}>
     <App />
-    </Provider>, document.getElementById('root'));
+    </Provider>, rootElement);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

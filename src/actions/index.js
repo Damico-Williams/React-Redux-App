@@ -15,6 +15,7 @@ export const getAnime = () => dispatch => {
       })
       .catch(err => {
           console.log(err);
-          dispatch({ type: FETCHING_ANIME_FAILED, payload: `${err.response.message} with error code ${err.response.code}`})
+          dispatch({ type: FETCHING_ANIME_FAILED, payload: `${err.response.message} ${err.response.code}`})
       })
+      
 };
