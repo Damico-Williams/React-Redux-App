@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getAnime } from "../actions";
-import { Card, Image } from "semantic-ui-react";
+import { Card, Image, Button } from "semantic-ui-react";
+import '../App.css';
 
 const Anime = ({ getAnime, anime, nowLoading, error }) => {
   if (nowLoading) {
@@ -16,7 +17,7 @@ const Anime = ({ getAnime, anime, nowLoading, error }) => {
     <div>
       {anime.map(item => {
         return (
-          <Card centered>
+          <Card centered color='teal'>
             <Image size="large" src={item.image_url} />
             <Card.Content>
               <Card.Header>{item.title}</Card.Header>
@@ -25,7 +26,7 @@ const Anime = ({ getAnime, anime, nowLoading, error }) => {
         );
       })}
 
-      <button onClick={getAnime}>Get Anime</button>
+      <Button color='teal' onClick={getAnime}>Get Anime</Button>
     </div>
   );
 };
