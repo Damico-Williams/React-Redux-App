@@ -19,3 +19,25 @@ export const getAnime = () => dispatch => {
       })
       
 };
+
+
+
+export const FETCHING_POKEMON_START = 'FETCHING_POKEMON_START';
+export const FETCHING_POKEMON_SUCCESS = 'FETCHING_POKEMON_SUCCESS';
+export const FETCHING_POKEMON_FAILED = 'FETCHING_POKEMON_FAILED';
+
+export const getPokemon = () => dispatch => {
+    dispatch({type: FETCHING_POKEMON_START});
+
+    axios
+      .get("https://api.pokemontcg.io/v1/cards?name=arcanine")
+      .then(res => {
+          console.log(res);
+          dispatch({ type: FETCHING_POKEMON_SUCCESS, payload: res.data.cards})
+      })
+      .catch(err => {
+          console.log(err);
+          dispatch({ type: FETCHING_POKEMON_FAILED, payload: `${err.response.message} ${err.response.code}`})
+      })
+      
+};
